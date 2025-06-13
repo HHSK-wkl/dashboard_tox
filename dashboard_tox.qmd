@@ -35,7 +35,9 @@ source("R/load_data.R")
 
 ```
 
-#  {.sidebar width="20%"}
+# Toxiciteit
+
+##  {.sidebar width="20%"}
 
 ```{r select-parameter}
 
@@ -57,55 +59,66 @@ numericInput("waarde_sel", "Concentratie (in ug/l)", 1, min = 0.00000001)
 ```
 
 
-##
+## 
 
-```{r}
-# gt::gt_output("normen")
-```
+###  {height="40%"}
 
-
-
-
-
-# Main {.scrollable}
-
-## {height=40%}
-
-### Normen
+#### Normen
 
 ```{r}
 gt_output("normen")
 ```
 
-
-### Toxiciteit
+#### Toxiciteit
 
 ```{r}
 gt_output("toxiciteit")
 
 ```
 
-
-## Toelatingen {height=60%}
+### Toelatingen {height="60%"}
 
 ::: panel-tabset
-
-### Toelatingen - Gewasbescherming professioneel
+#### Toelatingen - Gewasbescherming professioneel
 
 ```{r}
 gt_output("toelatingen_info")
 ```
 
-
-### Toelatingen - Overig
+#### Toelatingen - Overig
 
 ```{r}
 gt_output("toelatingen_overig")
 ```
-
 :::
 
 # Toelichting
+
+## 
+
+###
+
+::: {.card title="Werking dashboard"}
+Dit dashboard berekent van de geselecteerde stof op basis van de concentratie de bijbehorende normoverschijding en de toxiciteit (PAF). 
+
+De normen zijn afkomstig van het RIVM. Zie [Risico's van Stoffen | RIVM](https://rvszoeksysteem.rivm.nl/Stoffen)
+
+De toxiciteit wordt bepaald op basis van de toxiciteitsinformatie die beschikbaar is via [Rekentool toxiciteit](https://www.sleutelfactortoxiciteit.nl/verdieping/werken-met-het-chemiespoor/aan-de-slag-met-de-chemie-rekentool)
+
+De informatie over toelatingen is afkomstig van het CTGB. [Toelating en gebruik gewasbeschermingsmiddelen](https://www.ctgb.nl/toelating-en-gebruik).
+
+De achterliggende data van dit dashboard is bijgewerkt op `r Sys.Date()`.
+
+Vragen over dit dashboard kunnen gestuurd worden aan <rapportage_waterkwaliteit@hhsk.nl> .
+:::
+
+::: {.card title="Toxiciteit (PAF)"}
+De toxiciteit wordt uitgedrukt als de potentieel aangetaste fractie (PAF). Het is het deel van alle soorten dat aangetast kan worden. 
+
+De PAF-acuut gaat over directe effecten op organismen. De PAF-acuut is gebaseerd op EC50-waarden.
+
+De PAF-chronisch gaat over chronische effecten op organismen. De paf-chronisch is gebaseerd op NOEC-waarden.
+:::
 
 
 
