@@ -11,48 +11,27 @@ execute:
   warning: false
 ---
 
-```{r}
-#| label: render-time
+<!--#  Execution - zie: https://quarto.org/docs/interactive/shiny/execution.html-->
 
+```{r render-time}
+# Niet beschikbaar voor de server!
 library(tidyverse)
 library(shiny)
 library(gt)
 ```
 
-
-
-```{r}
+```{r server-start}
 #| context: server-start
 #| include: false
-source("R/load_data.R")
-# https://quarto.org/docs/interactive/shiny/execution.html
+# Alleen de eerste keer at server-time
 
+source("R/load_data.R")
 ```
 
-
-
-```{r}
+```{r setup}
 #| context: setup
 #| output: false
-
-# library(shiny)
-# library(tidyverse)
-# library(HHSKwkl)
-# library(leaflet)
-# library(glue)
-# library(sf)
-# library(gt)
-# 
-# theme_set(hhskthema())
-# source("R/load_data.R")
-
-
-
-
-# ws_grens <- sf::st_read("data/ws_grens.gpkg") %>% sf::st_transform(crs = 4326)
-
-# url_csv <- function(mp) paste0('<a href = "https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/wkl_gegevens_op_kaart/meetgegevens/', mp, '.csv">Meetgegevens</a>')
-# url_pdf <- function(mp) paste0('<a href = "https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/wkl_gegevens_op_kaart/grafieken/', mp, '.pdf">Grafieken</a>')
+# Beide at render-time and at server-time
 
 ```
 
@@ -126,35 +105,18 @@ gt_output("toelatingen_overig")
 
 :::
 
-# Meetwaarden
+# Toelichting
 
-
-# Toxiciteit
-
-
-# Kaart
 
 
 ```{r}
 #| context: server
 
 
-
-  # meetpunten <- HHSKwkl::import_meetpunten("data/meetpunten.csv")
-  # parameters <- read.csv2("data/parameters.csv")
-  # fys_chem <- readRDS("data/fys_chem.rds") %>% semi_join(filter(meetpunten, meetpunttypering %in% c(1, 2, 3, 5, 12)))
-
 try(normen <- data_online("normen.rds"))
-  # diergenees_bestand <- tempfile(fileext = ".csv")
-  # download.file("https://www.diergeneesmiddeleninformatiebank.nl/metadatadib.csv", destfile = diergenees_bestand)
-  # readr::read_delim(diergenees_bestand, delim = "|")
+ 
 
   
-  # toelatingen_db <- tempfile(fileext = ".xls")
-  # download.file("https://toelatingen.ctgb.nl/documents/public-authorisations-report.xls", toelatingen_db, method = "curl")
-  # httr2::request("https://toelatingen.ctgb.nl/documents/public-authorisations-report.xls") %>%
-  #   httr2::req_perform(path = toelatingen_db)
-
 info <- reactive({
   tibble(parnr = as.numeric(input$param_sel), waarde = input$waarde_sel, detectiegrens = NA) %>% 
     mutate(paf_acuut = paf_gbm(f_aquopar(parnr), 
@@ -207,7 +169,6 @@ output$normen <- render_gt({
     fmt_missing(everything(), missing_text = "--")
 })
 
-# Updated output for pesticides information
 output$toelatingen_info <- render_gt({
   selected_param <- f_stof_ctgb(input$param_sel)
   
