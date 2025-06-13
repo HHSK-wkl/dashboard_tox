@@ -1,0 +1,292 @@
+---
+title: "Toxiciteit gewasbeschermingsmiddelen"
+format: 
+  dashboard:
+    orientation: rows
+server: shiny
+logo: "www/logo_hhsk_750_wit.png"
+brand: "brand/_brand.yml"
+execute:
+  echo: false
+  warning: false
+---
+
+```{r}
+#| label: render-time
+
+library(tidyverse)
+library(shiny)
+library(gt)
+```
+
+
+
+```{r}
+#| context: server-start
+#| include: false
+source("R/load_data.R")
+# https://quarto.org/docs/interactive/shiny/execution.html
+
+```
+
+
+
+```{r}
+#| context: setup
+#| output: false
+
+# library(shiny)
+# library(tidyverse)
+# library(HHSKwkl)
+# library(leaflet)
+# library(glue)
+# library(sf)
+# library(gt)
+# 
+# theme_set(hhskthema())
+# source("R/load_data.R")
+
+
+
+
+# ws_grens <- sf::st_read("data/ws_grens.gpkg") %>% sf::st_transform(crs = 4326)
+
+# url_csv <- function(mp) paste0('<a href = "https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/wkl_gegevens_op_kaart/meetgegevens/', mp, '.csv">Meetgegevens</a>')
+# url_pdf <- function(mp) paste0('<a href = "https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/wkl_gegevens_op_kaart/grafieken/', mp, '.pdf">Grafieken</a>')
+
+```
+
+#  {.sidebar width="20%"}
+
+```{r select-parameter}
+
+parameters <- readRDS("data/parameters.rds")
+
+choices_par <- 
+  parameters %>% 
+  filter(parnr >= 1000, parnr < 2000) %>% 
+  select(parnaamlang, parnr) %>% 
+  arrange(parnaamlang) %>% 
+  deframe()
+
+selectInput("param_sel", "Parameter", choices = choices_par, selected = 1198)
+
+```
+
+```{r select-waarde}
+numericInput("waarde_sel", "Concentratie (in ug/l)", 1, min = 0.00000001)
+```
+
+
+##
+
+```{r}
+# gt::gt_output("normen")
+```
+
+
+
+
+
+# Main {.scrollable}
+
+## {height=40%}
+
+### Normen
+
+```{r}
+gt_output("normen")
+```
+
+
+### Toxiciteit
+
+```{r}
+gt_output("toxiciteit")
+
+```
+
+
+## Toelatingen {height=60%}
+
+::: panel-tabset
+
+### Toelatingen - Gewasbescherming professioneel
+
+```{r}
+gt_output("toelatingen_info")
+```
+
+
+### Toelatingen - Overig
+
+```{r}
+gt_output("toelatingen_overig")
+```
+
+:::
+
+# Meetwaarden
+
+
+# Toxiciteit
+
+
+# Kaart
+
+
+```{r}
+#| context: server
+
+
+
+  # meetpunten <- HHSKwkl::import_meetpunten("data/meetpunten.csv")
+  # parameters <- read.csv2("data/parameters.csv")
+  # fys_chem <- readRDS("data/fys_chem.rds") %>% semi_join(filter(meetpunten, meetpunttypering %in% c(1, 2, 3, 5, 12)))
+
+try(normen <- data_online("normen.rds"))
+  # diergenees_bestand <- tempfile(fileext = ".csv")
+  # download.file("https://www.diergeneesmiddeleninformatiebank.nl/metadatadib.csv", destfile = diergenees_bestand)
+  # readr::read_delim(diergenees_bestand, delim = "|")
+
+  
+  # toelatingen_db <- tempfile(fileext = ".xls")
+  # download.file("https://toelatingen.ctgb.nl/documents/public-authorisations-report.xls", toelatingen_db, method = "curl")
+  # httr2::request("https://toelatingen.ctgb.nl/documents/public-authorisations-report.xls") %>%
+  #   httr2::req_perform(path = toelatingen_db)
+
+info <- reactive({
+  tibble(parnr = as.numeric(input$param_sel), waarde = input$waarde_sel, detectiegrens = NA) %>% 
+    mutate(paf_acuut = paf_gbm(f_aquopar(parnr), 
+                               concentratie = waarde,
+                               detectiegrens = detectiegrens,
+                               ssd_data = toxiciteit,
+                               type_paf = "acuut"),
+           paf_chronisch = paf_gbm(f_aquopar(parnr),
+                                   concentratie = waarde,
+                                   detectiegrens = detectiegrens,
+                                   ssd_data = toxiciteit,
+                                   type_paf = "chronisch")) %>% 
+    left_join(normen)
+})
+
+output$stofnaam <- renderText({
+  str_to_sentence(f_parnaam(input$param_sel))
+})
+
+output$toxiciteit <- render_gt({
+  info() %>% 
+    mutate(paf_acuut_inv = ifelse(!is.na(paf_acuut), glue("1 op de {round(1 / paf_acuut)} soorten"), NA), 
+           paf_chronisch_inv = ifelse(!is.na(paf_chronisch), glue("1 op de {round(1 / paf_chronisch)} soorten"), NA),
+           naam = str_to_sentence(f_parnaam(input$param_sel)),
+           paf_acuut = scales::percent(signif(paf_acuut, 3), 0.01),
+           paf_chronisch = scales::percent(signif(paf_chronisch, 3), 0.01),
+           waarde = glue("{waarde} ug/l")) %>% 
+    select(Stofnaam = naam, 
+           Concentratie = waarde, 
+           `PAF Acuut` = paf_acuut_inv,
+           `PAF Chronisch` = paf_chronisch_inv,
+           `PAF Acuut (%)` = paf_acuut, 
+           `PAF Chronisch (%)` = paf_chronisch) %>% 
+    pivot_longer(cols = everything()) %>% 
+    gt() %>% 
+    cols_align("right", value) %>% 
+    tab_options(column_labels.hidden = TRUE) %>% 
+    fmt_missing(everything(), missing_text = "--")
+})
+
+output$normen <- render_gt({
+  info() %>% 
+    select(`MKN - Jaargemiddeld` = norm_JGM, 
+           `MKN - MAC-waarde` = norm_MAX, 
+           `MTR - 90-percentiel` = norm_P90) %>% 
+    pivot_longer(cols = everything(), names_to = "Norm", values_to = "Normwaarde") %>% 
+    mutate(Overschrijdingsfactor = signif(input$waarde_sel / Normwaarde, 3)) %>% 
+    gt() %>% 
+    cols_align("right", c(Normwaarde, Overschrijdingsfactor)) %>% 
+    fmt_missing(everything(), missing_text = "--")
+})
+
+# Updated output for pesticides information
+output$toelatingen_info <- render_gt({
+  selected_param <- f_stof_ctgb(input$param_sel)
+  
+  toelatingen_gbm %>%
+    filter(str_detect(werkzame_stoffen, regex(selected_param, ignore_case = TRUE))) %>%
+    mutate(
+      is_toegelaten = if_else(status == "Toegelaten", "Ja", "Nee"),
+      startdatum = format(startdatum, "%d-%m-%Y"),
+      expiratiedatum = format(expiratiedatum, "%d-%m-%Y")
+    ) %>%
+    select(
+      Middelnaam = middelnaam,
+      `Werkzame stoffen` = werkzame_stoffen,
+      Werking = aard_werking,
+      `Type gebruik` = biogewas,
+      Toepassing = toepassing,
+      Status = status,
+      `Start datum` = startdatum,
+      `Expiratie datum` = expiratiedatum
+    ) %>%
+    gt() %>%
+    cols_align(align = "left", columns = everything()) %>%
+    tab_style(
+      style = cell_text(color = HHSKwkl::blauw, weight = "bold"),
+      locations = cells_body(columns = Status, rows = Status == "Toegelaten")
+    ) %>%
+    tab_style(
+      style = cell_text(color = HHSKwkl::oranje, weight = "bold"),
+      locations = cells_body(columns = Status, rows = Status != "Toegelaten")
+    ) %>%
+    fmt_missing(columns = everything(), missing_text = "--") %>%
+    tab_options(
+      column_labels.font.weight = "bold",
+      table.font.size = px(12),
+      data_row.padding = px(3)
+    ) %>%
+    opt_all_caps(locations = "column_labels") %>%
+    opt_row_striping()
+})
+
+output$toelatingen_overig <- render_gt({
+  selected_param <- f_stof_ctgb(input$param_sel)
+  
+  toelatingen_overig %>%
+    filter(str_detect(werkzame_stoffen, regex(selected_param, ignore_case = TRUE))) %>%
+    mutate(
+      is_toegelaten = if_else(status == "Toegelaten", "Ja", "Nee"),
+      startdatum = format(startdatum, "%d-%m-%Y"),
+      expiratiedatum = format(expiratiedatum, "%d-%m-%Y")
+    ) %>%
+    select(
+      Middelnaam = middelnaam,
+      `Werkzame stoffen` = werkzame_stoffen,
+      Werking = aard_werking,
+      `Type gebruik` = biogewas,
+      Toepassing = toepassing,
+      Status = status,
+      `Start datum` = startdatum,
+      `Expiratie datum` = expiratiedatum
+    ) %>%
+    gt() %>%
+    cols_align(align = "left", columns = everything()) %>%
+    tab_style(
+      style = cell_text(color = HHSKwkl::blauw, weight = "bold"),
+      locations = cells_body(columns = Status, rows = Status == "Toegelaten")
+    ) %>%
+    tab_style(
+      style = cell_text(color = HHSKwkl::oranje, weight = "bold"),
+      locations = cells_body(columns = Status, rows = Status != "Toegelaten")
+    ) %>%
+    fmt_missing(columns = everything(), missing_text = "--") %>%
+    tab_options(
+      column_labels.font.weight = "bold",
+      table.font.size = px(12),
+      data_row.padding = px(3)
+    ) %>%
+    opt_all_caps(locations = "column_labels") %>%
+    opt_row_striping()
+})
+
+
+```
