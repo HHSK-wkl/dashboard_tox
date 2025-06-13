@@ -5,11 +5,10 @@ account: hhsk
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6287101
-bundleId: 10451230
+bundleId: 10451250
 url: https://hhsk.shinyapps.io/toxiciteit_gbm/
 version: 1
 quarto_version: 1.6.39
 quarto_engines: knitr
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: dashboard_tox.html|dashboard_tox_files

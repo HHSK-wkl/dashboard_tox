@@ -61,7 +61,7 @@ numericInput("waarde_sel", "Concentratie (in ug/l)", 1, min = 0.00000001)
 
 ## 
 
-###  {height="40%"}
+### Rij Normen en toxiciteit  {height="40%"}
 
 #### Normen
 
@@ -76,9 +76,10 @@ gt_output("toxiciteit")
 
 ```
 
-### Toelatingen {height="60%"}
+### Rij Toelatingen {height="60%"}
 
 ::: panel-tabset
+
 #### Toelatingen - Gewasbescherming professioneel
 
 ```{r}
@@ -90,6 +91,13 @@ gt_output("toelatingen_info")
 ```{r}
 gt_output("toelatingen_overig")
 ```
+
+#### Diergeneesmiddelen
+
+```{r}
+gt_output("toelatingen_genees")
+```
+
 :::
 
 # Toelichting
@@ -262,5 +270,44 @@ output$toelatingen_overig <- render_gt({
     opt_row_striping()
 })
 
+output$toelatingen_genees <- render_gt({
+  selected_param <- f_stof_genees(input$param_sel)
+  
+  diergenees %>%
+    filter(str_detect(werkzame_stoffen, regex(selected_param, ignore_case = TRUE))) %>%
+    mutate(
+      is_toegelaten = if_else(status == "Toegelaten", "Ja", "Nee"),
+      toelatingsdatum = format(toelatingsdatum, "%d-%m-%Y"),
+      verloopdatum = format(verloopdatum, "%d-%m-%Y")
+    ) %>%
+    select(
+      Productnaam = productnaam,
+      `Werkzame stoffen` = werkzame_stoffen,
+      `Vorm` = vorm,
+      Doeldieren = doeldieren,
+      Afleverstatus = afleverstatus,
+      Status = status,
+      `Toelatingsdatum` = toelatingsdatum,
+      `Verloopdatum` = verloopdatum
+    ) %>%
+    gt() %>%
+    cols_align(align = "left", columns = everything()) %>%
+    tab_style(
+      style = cell_text(color = HHSKwkl::blauw, weight = "bold"),
+      locations = cells_body(columns = Status, rows = Status == "Toegelaten")
+    ) %>%
+    tab_style(
+      style = cell_text(color = HHSKwkl::oranje, weight = "bold"),
+      locations = cells_body(columns = Status, rows = Status != "Toegelaten")
+    ) %>%
+    fmt_missing(columns = everything(), missing_text = "--") %>%
+    tab_options(
+      column_labels.font.weight = "bold",
+      table.font.size = px(12),
+      data_row.padding = px(3)
+    ) %>%
+    opt_all_caps(locations = "column_labels") %>%
+    opt_row_striping()
+})
 
 ```
