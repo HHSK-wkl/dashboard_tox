@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Toxiciteit gewasbeschermingsmiddelen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="dashboard_tox_files/libs/clipboard/clipboard.min.js"></script>
+<script src="dashboard_tox_files/libs/quarto-html/quarto.js"></script>
+<script src="dashboard_tox_files/libs/quarto-html/popper.min.js"></script>
+<script src="dashboard_tox_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="dashboard_tox_files/libs/quarto-html/anchor.min.js"></script>
+<link href="dashboard_tox_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="dashboard_tox_files/libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="dashboard_tox_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="dashboard_tox_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="dashboard_tox_files/libs/bootstrap/bootstrap-c84f526888d54095ebec636beb81fecc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="dashboard_tox_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="dashboard_tox_files/libs/quarto-dashboard/stickythead.js"></script>
+<script src="dashboard_tox_files/libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="dashboard_tox_files/libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="dashboard_tox_files/libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+<script src="dashboard_tox_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="dashboard_tox_files/libs/quarto-dashboard/components.js"></script>
+<link href="dashboard_tox_files/libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+
+
+<link rel="stylesheet" href="css/dashboard_tox.css">
+</head>
+
+<body class="quarto-dashboard dashboard-fill dashboard-sidebar fullcontent">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+    <a href="#"><img src="www/logo_hhsk_750_wit.png" alt="" class="navbar-logo d-inline-block"></a>
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Toxiciteit gewasbeschermingsmiddelen</a></div>
+        
+        
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-toxiciteit" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#toxiciteit" data-scrolling="false" href="#toxiciteit" aria-controls="toxiciteit" aria-selected="true"><span class="nav-link-text">Toxiciteit</span></a></li><li class="nav-item" role="presentation"><a id="tab-toelichting" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#toelichting" data-scrolling="false" href="#toelichting" aria-controls="toelichting" aria-selected="false"><span class="nav-link-text">Toelichting</span></a></li></ul></div></div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">  
+
+<!--#  Execution - zie: https://quarto.org/docs/interactive/shiny/execution.html-->
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div id="toxiciteit" class="dashboard-page tab-pane show active html-fill-item html-fill-container dashboard-sidebar-container" data-orientation="rows" aria-labelledby="tab-toxiciteit">
+<div class="bslib-sidebar-layout html-fill-item html-fill-container" data-bslib-sidebar-open="desktop" data-bslib-sidebar-init="true" style=" --bslib-sidebar-width: 20%" data-bslib-sidebar-border="false" data-bslib-sidebar-border-radius="false"><div class="main html-fill-container html-fill-item"><div class="sidebar-content html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 40fr) minmax(3em, 60fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container no-overflow-x">
+<div id="normen" class="shiny-html-output html-fill-item html-fill-container"></div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container no-overflow-x">
+<div id="toxiciteit" class="shiny-html-output html-fill-item html-fill-container"></div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="panel-tabset html-fill-item html-fill-container">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Toelatingen - Gewasbescherming (<span id="n_toelatingen_gbm" class="shiny-text-output"></span>)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Toelatingen - Biociden (<span id="n_toelatingen_biociden" class="shiny-text-output"></span>)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Diergeneesmiddelen ((<span id="n_toelatingen_diergenees" class="shiny-text-output"></span>))</a></li></ul>
+<div class="tab-content html-fill-item html-fill-container">
+<div id="tabset-1-1" class="tab-pane active html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="reactable html-widget html-widget-output shiny-report-size html-fill-item html-fill-container" data-reactable-output="toelatingen_gbm" id="toelatingen_gbm" style="width:auto;height:auto;"></div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div id="tabset-1-2" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="reactable html-widget html-widget-output shiny-report-size html-fill-item html-fill-container" data-reactable-output="toelatingen_biociden" id="toelatingen_biociden" style="width:auto;height:auto;"></div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div id="tabset-1-3" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="reactable html-widget html-widget-output shiny-report-size html-fill-item html-fill-container" data-reactable-output="toelatingen_genees" id="toelatingen_genees" style="width:auto;height:auto;"></div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div></div><aside id="bslib-sidebar-1" class="sidebar html-fill-container html-fill-item"><div class="html-fill-item html-fill-container">
+<div class="cell-output-display no-overflow-x">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="param_sel-label" for="param_sel">Parameter</label>
+<div>
+<select id="param_sel" class="shiny-input-select"><option value="1000">(3-chloor-4-methylfenyl)urea</option>
+<option value="1003">2,4'-dichloordifenyldichloorethaan</option>
+<option value="1004">2,4'-dichloordifenyldichlooretheen</option>
+<option value="1005">2,4'-dichloordifenyltrichloorethaan</option>
+<option value="1001">2,4,5-trichloorfenoxyazijnzuur</option>
+<option value="1002">2,4,5-trichloorfenoxypropionzuur</option>
+<option value="1006">2,4-dichloorfenoxyazijnzuur</option>
+<option value="1007">2,4-dichloorfenoxyboterzuur</option>
+<option value="1008">2,4-dichloorfenoxypropionzuur</option>
+<option value="1009">2,4-dinitrofenol</option>
+<option value="1010">2,6-dichloorbenzamide</option>
+<option value="1012">2-methyl-4-chloorfenoxyazijnzuur</option>
+<option value="1013">2-methyl-4-chloorfenoxyboterzuur</option>
+<option value="1014">4,4'-dichloordifenyldichloorethaan</option>
+<option value="1015">4,4'-dichloordifenyldichlooretheen</option>
+<option value="1016">4,4'-dichloordifenyltrichloorethaan</option>
+<option value="1017">4,6-dinitro-o-cresol</option>
+<option value="1018">4-chlooraniline</option>
+<option value="1019">4-chloorfenoxyazijnzuur</option>
+<option value="1020">4-dimethylaminosulfotoluidide</option>
+<option value="1021">4-hydroxy-2,5,6-trichloorisoftalonitril</option>
+<option value="1022">4-methyl-2-pentanon (MIBK)</option>
+<option value="1023">4-nitrofenol</option>
+<option value="1024">4-nonylfenol</option>
+<option value="1025">4-tertiair-octylfenol</option>
+<option value="1029">Aclonifen</option>
+<option value="1063">C14-C18 en C16-C18 onverzadigd alkylamine-ethoxylaat</option>
+<option value="1133">Dodine</option>
+<option value="1353">E-metaflumizon</option>
+<option value="1298">Spiromesifen</option>
+<option value="1299">Spirotetramat</option>
+<option value="1310">Tetrahydroftaalimide</option>
+<option value="1354">Z-metaflumizon</option>
+<option value="1026">abamectine</option>
+<option value="1027">acequinocyl</option>
+<option value="1028">acetamiprid</option>
+<option value="1339">acibenzolar-S-methyl</option>
+<option value="1030">acridine</option>
+<option value="1031">alachloor</option>
+<option value="1032">aldicarb</option>
+<option value="1033">aldicarbsulfon</option>
+<option value="1034">aldicarbsulfoxide</option>
+<option value="1035">aldrin</option>
+<option value="1036">alfa-cypermethrin</option>
+<option value="1037">alfa-endosulfan</option>
+<option value="1038">alfa-hexachloorcyclohexaan</option>
+<option value="1039">ametoctradin</option>
+<option value="1040">amidosulfuron</option>
+<option value="1041">aminomethylfosfonzuur</option>
+<option value="1042">atrazine</option>
+<option value="1043">azaconazool</option>
+<option value="1044">azadirachtin</option>
+<option value="1045">azamethifos</option>
+<option value="1046">azoxystrobin</option>
+<option value="1047">bentazon</option>
+<option value="1340">benzyladenine</option>
+<option value="1048">beta-endosulfan</option>
+<option value="1049">beta-hexachloorcyclohexaan</option>
+<option value="1050">bifenazaat</option>
+<option value="1051">bifenox</option>
+<option value="1052">bis(2-ethylhexyl)ftalaat (DEHP)</option>
+<option value="1053">bitertanol</option>
+<option value="1054">boscalid</option>
+<option value="1055">bromacil</option>
+<option value="1056">broomoxynil</option>
+<option value="1057">broompropylaat</option>
+<option value="1058">bupirimaat</option>
+<option value="1059">buprofezin</option>
+<option value="1060">butocarboxim</option>
+<option value="1061">butocarboximsulfoxide</option>
+<option value="1062">butylacetaat</option>
+<option value="1064">captan</option>
+<option value="1065">carbamazepine</option>
+<option value="1066">carbaryl</option>
+<option value="1067">carbendazim</option>
+<option value="1068">carbetamide</option>
+<option value="1069">carbofuran</option>
+<option value="1070">carfentrazon-ethyl</option>
+<option value="1071">chlofentezin</option>
+<option value="1072">chlooramine-T</option>
+<option value="1073">chloorbromuron</option>
+<option value="1074">chloordaan</option>
+<option value="1075">chloorfenvinfos</option>
+<option value="1341">chloormequat</option>
+<option value="1076">chloormequatchloride</option>
+<option value="1077">chlooroxuron</option>
+<option value="1078">chloorprofam</option>
+<option value="1079">chloorsulfuron</option>
+<option value="1080">chloorthalonil</option>
+<option value="1081">chloortoluron</option>
+<option value="1082">chlorantraniliprole</option>
+<option value="1083">chloridazon</option>
+<option value="1084">cis-1,2-dichlooretheen</option>
+<option value="1085">cis-chloordaan</option>
+<option value="1086">cis-heptachloorepoxide</option>
+<option value="1087">cis-mevinfos</option>
+<option value="1088">cis-pyrifenox</option>
+<option value="1089">clodinafop-propargyl</option>
+<option value="1090">clomazon</option>
+<option value="1091">clopyralid</option>
+<option value="1092">cloquintoceet-mexyl</option>
+<option value="1093">cumafos</option>
+<option value="1094">cyantraniliprole</option>
+<option value="1095">cyazofamide</option>
+<option value="1096">cycloxydim</option>
+<option value="1342">cyflufenamide</option>
+<option value="1097">cyflumetofen</option>
+<option value="1098">cyfluthrin</option>
+<option value="1099">cymoxanil</option>
+<option value="1100">cypermethrin</option>
+<option value="1101">cyproconazool</option>
+<option value="1102">cyprodinil</option>
+<option value="1103">cyromazine</option>
+<option value="1104">daminozide</option>
+<option value="1105">delta-hexachloorcyclohexaan</option>
+<option value="1106">deltamethrin</option>
+<option value="1107">demeton-S-methyl</option>
+<option value="1108">desethylatrazine</option>
+<option value="1109">desethylterbutylazine</option>
+<option value="1110">desmedifam</option>
+<option value="1111">desmetryn</option>
+<option value="1112">diazinon</option>
+<option value="1113">dicamba</option>
+<option value="1114">dichlobenil</option>
+<option value="1115">dichlofluanide</option>
+<option value="1116">dichloorvos</option>
+<option value="1117">dieldrin</option>
+<option value="1118">diethofencarb</option>
+<option value="1119">diethyltoluamide</option>
+<option value="1120">difenoconazool</option>
+<option value="1121">difenoxuron</option>
+<option value="1122">diflubenzuron</option>
+<option value="1123">diflufenican</option>
+<option value="1124">dimethenamide</option>
+<option value="1125">dimethoaat</option>
+<option value="1126">dimethomorf</option>
+<option value="1127">dinoseb</option>
+<option value="1128">dinoterb</option>
+<option value="1129">disulfoton</option>
+<option value="1130">dithianon</option>
+<option value="1131">diuron</option>
+<option value="1132">dodemorf</option>
+<option value="1359">emamectin</option>
+<option value="1134">emamectin-benzoaat</option>
+<option value="1135">endosulfan (som alfa- en beta-isomeer)</option>
+<option value="1136">endosulfansulfaat</option>
+<option value="1137">endrin</option>
+<option value="1138">epoxiconazool</option>
+<option value="1139">esfenvaleraat</option>
+<option value="1343">etheen</option>
+<option value="1140">ethefon</option>
+<option value="1141">ethiofencarb</option>
+<option value="1142">ethiofencarbsulfon</option>
+<option value="1143">ethiofencarbsulfoxide</option>
+<option value="1144">ethofumesaat</option>
+<option value="1145">ethoprofos</option>
+<option value="1146">ethylacetaat</option>
+<option value="1147">ethylazinfos</option>
+<option value="1148">ethylbromofos</option>
+<option value="1149">ethylchloorpyrifos</option>
+<option value="1150">ethyldipropylthiocarbamaat</option>
+<option value="1151">ethyleenthioureum</option>
+<option value="1152">ethylparathion</option>
+<option value="1153">etoxazool</option>
+<option value="1154">etridiazol</option>
+<option value="1155">fenamidon</option>
+<option value="1156">fenamifos</option>
+<option value="1157">fenbutatinoxide</option>
+<option value="1158">fenhexamide</option>
+<option value="1159">fenitrothion</option>
+<option value="1160">fenmedifam</option>
+<option value="1161">fenoxycarb</option>
+<option value="1162">fenpropidin</option>
+<option value="1163">fenpropimorf</option>
+<option value="1344">fenpyrazamine</option>
+<option value="1164">fenthion</option>
+<option value="1165">fenuron</option>
+<option value="1166">fenvaleraat</option>
+<option value="1167">fipronil</option>
+<option value="1168">flonicamid</option>
+<option value="1169">fluazifop</option>
+<option value="1170">fluazifop-P-butyl</option>
+<option value="1171">fluazinam</option>
+<option value="1172">flubendiamide</option>
+<option value="1173">fludioxonil</option>
+<option value="1174">flufenacet</option>
+<option value="1175">flumioxazin</option>
+<option value="1176">fluopyram</option>
+<option value="1345">flupyradifuron</option>
+<option value="1177">fluroxypyr</option>
+<option value="1178">flurtamon</option>
+<option value="1179">flutolanil</option>
+<option value="1180">folpet</option>
+<option value="1346">formetanaat</option>
+<option value="1181">fosalon</option>
+<option value="1182">fosetyl</option>
+<option value="1347">fosetyl-aluminium</option>
+<option value="1183">fosfamidon</option>
+<option value="1184">fosthiazaat</option>
+<option value="1185">furalaxyl</option>
+<option value="1186">furathiocarb</option>
+<option value="1187">gamma-hexachloorcyclohexaan (lindaan)</option>
+<option value="1188">glufosinaat</option>
+<option value="1348">glufosinaat-ammonium</option>
+<option value="1189">glyfosaat</option>
+<option value="1190">haloxyfop</option>
+<option value="1191">haloxyfop-ethoxyethyl</option>
+<option value="1192">heptachloor</option>
+<option value="1193">heptenofos</option>
+<option value="1194">hexachloorbenzeen</option>
+<option value="1195">hexythiazox</option>
+<option value="1196">hymexazool</option>
+<option value="1197">imazalil</option>
+<option value="1198" selected="">imidacloprid</option>
+<option value="1199">indoxacarb</option>
+<option value="1200">ioxynil</option>
+<option value="1201">iprodion</option>
+<option value="1360">irgarol</option>
+<option value="1202">iso-butylacetaat</option>
+<option value="1203">isodrin</option>
+<option value="1204">isopropylanthranilamide</option>
+<option value="1205">isoproturon</option>
+<option value="1206">isoxaben</option>
+<option value="1207">isoxaflutool</option>
+<option value="1208">joodpropynylbutylcarbamaat</option>
+<option value="1209">kresoxim-methyl</option>
+<option value="1210">lambda-cyhalothrin</option>
+<option value="1211">laminaran</option>
+<option value="1212">lenacil</option>
+<option value="1213">linuron</option>
+<option value="1214">lufenuron</option>
+<option value="1215">malathion</option>
+<option value="1216">mandipropamide</option>
+<option value="1217">mecoprop</option>
+<option value="1218">mepanipyrim</option>
+<option value="1349">mepiquatchloride</option>
+<option value="1219">mesosulfuron-methyl</option>
+<option value="1220">mesotrion</option>
+<option value="1221">metabenzthiazuron</option>
+<option value="1350">metaflumizon</option>
+<option value="1222">metalaxyl</option>
+<option value="1224">metamitron</option>
+<option value="1225">metazachloor</option>
+<option value="1226">methiocarb</option>
+<option value="1227">methiocarbsulfon</option>
+<option value="1228">methiocarbsulfoxide</option>
+<option value="1229">methomyl</option>
+<option value="1230">methoxyfenozide</option>
+<option value="1235">methyl-metsulfuron</option>
+<option value="1231">methylazinfos</option>
+<option value="1232">methylbromofos</option>
+<option value="1233">methylchloorpyrifos</option>
+<option value="1234">methylisothiocyanaat</option>
+<option value="1236">methylparathion</option>
+<option value="1237">methylpirimifos</option>
+<option value="1238">metobromuron</option>
+<option value="1239">metolachloor</option>
+<option value="1240">metoxuron</option>
+<option value="1241">metrafenon</option>
+<option value="1242">metribuzin</option>
+<option value="1243">mevinfos</option>
+<option value="1244">milbemycin A3</option>
+<option value="1355">milbemycin A4</option>
+<option value="1245">monocrotofos</option>
+<option value="1246">monolinuron</option>
+<option value="1247">monuron</option>
+<option value="1357">neburon</option>
+<option value="1248">nicosulfuron</option>
+<option value="1249">nonylfenol</option>
+<option value="1250">nuarimol</option>
+<option value="1251">omethoaat</option>
+<option value="1252">oxamyl</option>
+<option value="1253">oxasulfuron</option>
+<option value="1275">p-tolueensulfonamide</option>
+<option value="1254">paclobutrazol</option>
+<option value="1255">penconazool</option>
+<option value="1256">pencycuron</option>
+<option value="1257">pendimethalin</option>
+<option value="1258">pentachloorfenol</option>
+<option value="1259">pentachloornitrobenzeen (quintozeen)</option>
+<option value="1260">permethrin</option>
+<option value="1261">picolinafen</option>
+<option value="1262">piperonyl-butoxide</option>
+<option value="1263">pirimicarb</option>
+<option value="1264">prochloraz</option>
+<option value="1265">procymidon</option>
+<option value="1266">profam</option>
+<option value="1267">propachloor</option>
+<option value="1338">propamocarb</option>
+<option value="1268">propamocarb hydrochloride</option>
+<option value="1269">propazine</option>
+<option value="1270">propiconazol</option>
+<option value="1271">propoxur</option>
+<option value="1272">propyzamide</option>
+<option value="1273">prosulfocarb</option>
+<option value="1274">prosulfuron</option>
+<option value="1276">pymetrozine</option>
+<option value="1277">pyraclostrobin</option>
+<option value="1278">pyrazofos</option>
+<option value="1279">pyrethrinen</option>
+<option value="1280">pyridaben</option>
+<option value="1281">pyridalyl</option>
+<option value="1282">pyrifenox</option>
+<option value="1283">pyrimethanil</option>
+<option value="1284">pyriproxyfen</option>
+<option value="1285">quinmerac</option>
+<option value="1286">quinoclamin</option>
+<option value="1361">quinoxyfen</option>
+<option value="1287">quizalofop-P-ethyl</option>
+<option value="1351">sedaxane</option>
+<option value="1288">simazine</option>
+<option value="1289">som 2,4'- en 4,4'-DDD</option>
+<option value="1290">som 2,4'- en 4,4'-DDE</option>
+<option value="1291">som 2,4'- en 4,4'-DDT</option>
+<option value="1294">som MCPB en 24DB</option>
+<option value="1337">som dithiocarbamaten</option>
+<option value="1292">som dithiocarbamaten in CS2</option>
+<option value="1293">som heptachloorepoxide (som cis- en trans-)</option>
+<option value="1356">som milbemycin A3 + A4</option>
+<option value="1295">som o-demeton en s-demeton</option>
+<option value="1358">spinetoram (mix)</option>
+<option value="1296">spinosad</option>
+<option value="1297">spirodiclofen</option>
+<option value="1362">spiroxamine</option>
+<option value="1300">sulcotrion</option>
+<option value="1301">sulfotep</option>
+<option value="1352">sulfoxaflor</option>
+<option value="1302">tebuconazol</option>
+<option value="1303">tebufenpyrad</option>
+<option value="1304">teflubenzuron</option>
+<option value="1305">tefluthrin</option>
+<option value="1306">telodrin</option>
+<option value="1307">terbutrin</option>
+<option value="1308">terbutylazine</option>
+<option value="1309">tetrachloorvinfos (mixed isomeren)</option>
+<option value="1311">thiacloprid</option>
+<option value="1312">thiamethoxam</option>
+<option value="1313">thifensulfuron-methyl</option>
+<option value="1314">thiofanaat-methyl</option>
+<option value="1315">thiometon</option>
+<option value="1316">thiram</option>
+<option value="1317">tolclofos-methyl</option>
+<option value="1318">tolylfluanide</option>
+<option value="1319">topramezon</option>
+<option value="1320">trans-chloordaan</option>
+<option value="1321">trans-fluoxastrobin</option>
+<option value="1322">trans-heptachloorepoxide</option>
+<option value="1323">trans-mevinfos</option>
+<option value="1324">trans-permethrin</option>
+<option value="1325">trans-pyrifenox</option>
+<option value="1326">triadimenol</option>
+<option value="1327">triallaat</option>
+<option value="1328">triazofos</option>
+<option value="1363">tribenuronmethyl</option>
+<option value="1364">trichloorfon</option>
+<option value="1329">triclopyr</option>
+<option value="1330">trifloxystrobin</option>
+<option value="1331">triflumizool</option>
+<option value="1332">trifluraline</option>
+<option value="1333">triflusulfuron-methyl</option>
+<option value="1334">trinexapac-ethyl</option>
+<option value="1335">vamidothion</option>
+<option value="1336">vinclozolin</option></select>
+<script type="application/json" data-for="param_sel" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="waarde_sel-label" for="waarde_sel">Concentratie (in ug/l)</label>
+<input id="waarde_sel" type="number" class="shiny-input-number form-control" value="1" min="1e-08">
+</div>
+</div>
+</div></aside>
+<button class="collapse-toggle" type="button" title="Toggle sidebar" aria-expanded="true" aria-controls="bslib-sidebar-1">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" class="bi bi-chevron-left collapse-icon" style="fill:currentColor;" aria-hidden="true" role="img">
+      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+    </svg>
+</button>
+<script data-bslib-sidebar-init="">
+bslib.Sidebar.initCollapsibleAll()
+</script>
+</div>
+</div>
+<div id="toelichting" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-toelichting">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-title="Werking dashboard" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Werking dashboard
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<p>Dit dashboard berekent van de geselecteerde stof op basis van de concentratie de bijbehorende normoverschijding en de toxiciteit (PAF).</p>
+<p>De normen zijn afkomstig van het RIVM. Zie <a href="https://rvszoeksysteem.rivm.nl/Stoffen" target="_blank">Risico’s van Stoffen | RIVM</a></p>
+<p>De toxiciteit wordt bepaald op basis van de toxiciteitsinformatie die beschikbaar is via <a href="https://www.sleutelfactortoxiciteit.nl/verdieping/werken-met-het-chemiespoor/aan-de-slag-met-de-chemie-rekentool" target="_blank">Rekentool toxiciteit</a></p>
+<p>De informatie over toelatingen is afkomstig van het CTGB. <a href="https://www.ctgb.nl/toelating-en-gebruik" target="_blank">Toelating en gebruik gewasbeschermingsmiddelen</a>.</p>
+<p>De achterliggende data van dit dashboard is bijgewerkt op 2025-06-23.</p>
+<p>Vragen over dit dashboard kunnen gestuurd worden aan <a href="mailto:rapportage_waterkwaliteit@hhsk.nl" class="email">rapportage_waterkwaliteit@hhsk.nl</a> .</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card html-fill-item html-fill-container bslib-card" data-title="Toxiciteit (PAF)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Toxiciteit (PAF)
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<p>De toxiciteit wordt uitgedrukt als de potentieel aangetaste fractie (PAF). Het is het deel van alle soorten dat aangetast kan worden.</p>
+<p>De PAF-acuut gaat over directe effecten op organismen. De PAF-acuut is gebaseerd op EC50-waarden.</p>
+<p>De PAF-chronisch gaat over chronische effecten op organismen. De paf-chronisch is gebaseerd op NOEC-waarden.</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>
+<script type="application/shiny-prerendered" data-context="server-start">
+# Alleen de eerste keer at server-time
+
+source("R/load_data.R")
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server-start">
+# Beide at render-time and at server-time
+
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+try(normen <- data_online("normen.rds"))
+
+info <- reactive({
+  tibble(parnr = as.numeric(input$param_sel), waarde = input$waarde_sel, detectiegrens = NA) %>% 
+    mutate(paf_acuut = paf_gbm(f_aquopar(parnr), 
+                               concentratie = waarde,
+                               detectiegrens = detectiegrens,
+                               ssd_data = toxiciteit,
+                               type_paf = "acuut"),
+           paf_chronisch = paf_gbm(f_aquopar(parnr),
+                                   concentratie = waarde,
+                                   detectiegrens = detectiegrens,
+                                   ssd_data = toxiciteit,
+                                   type_paf = "chronisch")) %>% 
+    left_join(normen)
+})
+
+output$stofnaam <- renderText({
+  str_to_sentence(f_parnaam(input$param_sel))
+})
+
+output$toxiciteit <- render_gt({
+  info() %>% 
+    mutate(paf_acuut_inv = ifelse(!is.na(paf_acuut), glue("1 op de {round(1 / paf_acuut)} soorten"), NA), 
+           paf_chronisch_inv = ifelse(!is.na(paf_chronisch), glue("1 op de {round(1 / paf_chronisch)} soorten"), NA),
+           naam = str_to_sentence(f_parnaam(input$param_sel)),
+           paf_acuut = scales::percent(signif(paf_acuut, 3), 0.01),
+           paf_chronisch = scales::percent(signif(paf_chronisch, 3), 0.01),
+           waarde = glue("{waarde} ug/l")) %>% 
+    select(Stofnaam = naam, 
+           Concentratie = waarde, 
+           `PAF Acuut` = paf_acuut_inv,
+           `PAF Chronisch` = paf_chronisch_inv,
+           `PAF Acuut (%)` = paf_acuut, 
+           `PAF Chronisch (%)` = paf_chronisch) %>% 
+    pivot_longer(cols = everything()) %>% 
+    gt() %>% 
+    cols_align("right", value) %>% 
+    tab_options(column_labels.hidden = TRUE) %>% 
+    fmt_missing(everything(), missing_text = "--")
+})
+
+output$normen <- render_gt({
+  info() %>% 
+    select(`MKN - Jaargemiddeld` = norm_JGM, 
+           `MKN - MAC-waarde` = norm_MAX, 
+           `MTR - 90-percentiel` = norm_P90) %>% 
+    pivot_longer(cols = everything(), names_to = "Norm", values_to = "Normwaarde") %>% 
+    mutate(Overschrijdingsfactor = signif(input$waarde_sel / Normwaarde, 3)) %>% 
+    gt() %>% 
+    cols_align("right", c(Normwaarde, Overschrijdingsfactor)) %>% 
+    fmt_missing(everything(), missing_text = "--")
+})
+
+toelatingen_gbm_sel <- reactive({
+  selected_param <- f_stof_ctgb(input$param_sel)
+  
+  toelatingen_gbm %>%
+    filter(str_detect(werkzame_stoffen, regex(selected_param, ignore_case = TRUE))) %>%
+    mutate(
+      # is_toegelaten = if_else(status == "Toegelaten", "Ja", "Nee"),
+      startdatum = format(startdatum, "%d-%m-%Y"),
+      expiratiedatum = format(expiratiedatum, "%d-%m-%Y")
+    )
+})
+
+output$n_toelatingen_gbm <- renderText(nrow(toelatingen_gbm_sel()))
+
+output$toelatingen_gbm <- renderReactable({
+  
+  toelatingen_gbm_sel() %>%
+    select(
+      Middelnaam = middelnaam,
+      `Werkzame stoffen` = werkzame_stoffen,
+      Werking = aard_werking,
+      # `Type gebruik` = biogewas,
+      Toepassing = toepassing,
+      # `Start datum` = startdatum,
+      `Expiratie datum` = expiratiedatum,
+      Status = status
+    ) %>%
+    reactable(
+      groupBy = c("Toepassing"),
+      defaultPageSize = 10,
+      elementId = "toelatingen_gbm_table",
+      filterable = TRUE,
+      paginateSubRows = TRUE,
+      columns = list(
+        Status = colDef(aggregate = "frequency",
+                        style = f_style_toegelaten)
+        
+        )
+    )
+    
+  # gt() %>%
+  #   cols_align(align = "left", columns = everything()) %>%
+  #   tab_style(
+  #     style = cell_text(color = HHSKwkl::blauw, weight = "bold"),
+  #     locations = cells_body(columns = Status, rows = Status == "Toegelaten")
+  #   ) %>%
+  #   tab_style(
+  #     style = cell_text(color = HHSKwkl::oranje, weight = "bold"),
+  #     locations = cells_body(columns = Status, rows = Status != "Toegelaten")
+  #   ) %>%
+  #   fmt_missing(columns = everything(), missing_text = "--") %>%
+  #   tab_options(
+  #     column_labels.font.weight = "bold",
+  #     table.font.size = px(12),
+  #     data_row.padding = px(3)
+  #   ) %>%
+  #   opt_all_caps(locations = "column_labels") %>%
+  #   opt_row_striping()
+})
+
+toelatingen_biociden_sel <- reactive({
+  selected_param <- f_stof_ctgb(input$param_sel)
+  
+  toelatingen_biociden %>%
+    filter(str_detect(werkzame_stoffen, regex(selected_param, ignore_case = TRUE))) %>%
+    mutate(
+      # is_toegelaten = if_else(status == "Toegelaten", "Ja", "Nee"),
+      startdatum = format(startdatum, "%d-%m-%Y"),
+      expiratiedatum = format(expiratiedatum, "%d-%m-%Y")
+    ) 
+})
+
+output$n_toelatingen_biociden <- renderText(nrow(toelatingen_biociden_sel()))
+
+output$toelatingen_biociden <- renderReactable({
+  toelatingen_biociden_sel() %>%
+    select(
+      Middelnaam = middelnaam,
+      `Werkzame stoffen` = werkzame_stoffen,
+      Werking = aard_werking,
+      # `Type gebruik` = biogewas,
+      Toepassing = toepassing,
+      # `Start datum` = startdatum,
+      `Expiratie datum` = expiratiedatum,
+      Status = status,
+    ) %>%
+    reactable(
+      groupBy = c("Toepassing"),
+      defaultPageSize = 10,
+      elementId = "toelatingen_biociden_table",
+      filterable = TRUE,
+      paginateSubRows = TRUE,
+      columns = list(
+        Status = colDef(aggregate = "frequency",
+                        style = f_style_toegelaten)
+        
+        )
+    )
+    # gt() %>%
+    # cols_align(align = "left", columns = everything()) %>%
+    # tab_style(
+    #   style = cell_text(color = HHSKwkl::blauw, weight = "bold"),
+    #   locations = cells_body(columns = Status, rows = Status == "Toegelaten")
+    # ) %>%
+    # tab_style(
+    #   style = cell_text(color = HHSKwkl::oranje, weight = "bold"),
+    #   locations = cells_body(columns = Status, rows = Status != "Toegelaten")
+    # ) %>%
+    # fmt_missing(columns = everything(), missing_text = "--") %>%
+    # tab_options(
+    #   column_labels.font.weight = "bold",
+    #   table.font.size = px(12),
+    #   data_row.padding = px(3)
+    # ) %>%
+    # opt_all_caps(locations = "column_labels") %>%
+    # opt_row_striping()
+})
+
+toelatingen_diergenees_sel <- reactive({
+  selected_par_genees <- f_stof_genees(input$param_sel)
+
+  diergenees %>%
+    filter(str_detect(werkzame_stoffen, regex(selected_par_genees, ignore_case = TRUE))) %>%
+    mutate(
+      is_toegelaten = if_else(status == "Toegelaten", "Ja", "Nee"),
+      toelatingsdatum = format(toelatingsdatum, "%d-%m-%Y"),
+      verloopdatum = format(verloopdatum, "%d-%m-%Y")
+    )
+})
+
+output$n_toelatingen_diergenees <- renderText(nrow(toelatingen_diergenees_sel()))
+
+
+output$toelatingen_genees <- renderReactable({
+   toelatingen_diergenees_sel() %>%
+    select(
+      Productnaam = productnaam,
+      `Werkzame stoffen` = werkzame_stoffen,
+      `Vorm` = vorm,
+      Doeldieren = doeldieren,
+      Beschikbaarheid = afleverstatus,
+      # `Toelatingsdatum` = toelatingsdatum,
+      # `Verloopdatum` = verloopdatum,
+      Status = status
+    ) %>%
+    reactable(
+      groupBy = c("Vorm"),
+      defaultPageSize = 10,
+      elementId = "diergeneesmiddelen-table",
+      filterable = TRUE,
+      paginateSubRows = TRUE,
+      columns = list(
+        Status = colDef(aggregate = "frequency")
+        # Afleverstatus = colDef(aggregate = "frequency")
+        )
+    )
+  
+})
+
+# 
+# output$toelatingen_genees <- render_gt({
+#   selected_par_genees <- f_stof_genees(input$param_sel)
+#   
+#   diergenees %>%
+#     filter(str_detect(werkzame_stoffen, regex(selected_par_genees, ignore_case = TRUE))) %>%
+#     mutate(
+#       is_toegelaten = if_else(status == "Toegelaten", "Ja", "Nee"),
+#       toelatingsdatum = format(toelatingsdatum, "%d-%m-%Y"),
+#       verloopdatum = format(verloopdatum, "%d-%m-%Y")
+#     ) %>%
+#     select(
+#       Productnaam = productnaam,
+#       `Werkzame stoffen` = werkzame_stoffen,
+#       `Vorm` = vorm,
+#       Doeldieren = doeldieren,
+#       Afleverstatus = afleverstatus,
+#       Status = status,
+#       `Toelatingsdatum` = toelatingsdatum,
+#       `Verloopdatum` = verloopdatum
+#     ) %>%
+#     gt() %>%
+#     cols_align(align = "left", columns = everything()) %>%
+#     tab_style(
+#       style = cell_text(color = HHSKwkl::blauw, weight = "bold"),
+#       locations = cells_body(columns = Status, rows = Status == "Toegelaten")
+#     ) %>%
+#     tab_style(
+#       style = cell_text(color = HHSKwkl::oranje, weight = "bold"),
+#       locations = cells_body(columns = Status, rows = Status != "Toegelaten")
+#     ) %>%
+#     fmt_missing(columns = everything(), missing_text = "--") %>%
+#     tab_options(
+#       column_labels.font.weight = "bold",
+#       table.font.size = px(12),
+#       data_row.padding = px(3)
+#     ) %>%
+#     opt_all_caps(locations = "column_labels") %>%
+#     opt_row_striping()
+# })
+
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server-extras">
+ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
+  quos <- rlang::enquos(...)
+  vars <- rlang::list2(...)
+  nm <- names(vars)
+  if (is.null(nm)) {
+    nm <- rep_len("", length(vars))
+  }
+  mapply(function(q, nm, val) {
+    # Infer name, if possible
+    if (nm == "") {
+      tryCatch({
+        nm <- rlang::as_name(q)
+      }, error = function(e) {
+        code <- paste(collapse = "\n", deparse(rlang::f_rhs(q)))
+        stop("ojs_define() could not create a name for the argument: ", code)
+      })
+    }
+    .session$output[[nm]] <- val
+    outputOptions(.session$output, nm, suspendWhenHidden = FALSE)
+    .session$sendCustomMessage("ojs-export", list(name = nm))
+    NULL
+  }, quos, nm, vars, SIMPLIFY = FALSE, USE.NAMES = FALSE)
+  invisible()
+}
+</script>
+</p>
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.9.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["core-js"]},{"type":"character","attributes":{},"value":["2.5.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/core-js"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["shim.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactR"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.6.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["react"]},{"type":"character","attributes":{},"value":["18.2.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/react"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["react.min.js","react-dom.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactR"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.6.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["reactwidget"]},{"type":"character","attributes":{},"value":["2.0.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/react-tools"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["react-tools.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactR"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.6.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmltools-fill"]},{"type":"character","attributes":{},"value":["0.5.8.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["fill"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["fill.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmltools"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.5.8.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["1.6.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.6.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["reactable"]},{"type":"character","attributes":{},"value":["0.4.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.4.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["reactable-binding"]},{"type":"character","attributes":{},"value":["0.4.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["0.4.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["core-js"]},{"type":"character","attributes":{},"value":["2.5.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/core-js"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["shim.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactR"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.6.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["react"]},{"type":"character","attributes":{},"value":["18.2.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/react"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["react.min.js","react-dom.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactR"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.6.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["reactwidget"]},{"type":"character","attributes":{},"value":["2.0.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/react-tools"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["react-tools.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactR"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.6.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmltools-fill"]},{"type":"character","attributes":{},"value":["0.5.8.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["fill"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["fill.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmltools"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.5.8.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["1.6.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.6.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["reactable"]},{"type":"character","attributes":{},"value":["0.4.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.4.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["reactable-binding"]},{"type":"character","attributes":{},"value":["0.4.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["0.4.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["core-js"]},{"type":"character","attributes":{},"value":["2.5.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/core-js"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["shim.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactR"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.6.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["react"]},{"type":"character","attributes":{},"value":["18.2.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/react"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["react.min.js","react-dom.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactR"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.6.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["reactwidget"]},{"type":"character","attributes":{},"value":["2.0.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/react-tools"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["react-tools.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactR"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.6.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmltools-fill"]},{"type":"character","attributes":{},"value":["0.5.8.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["fill"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["fill.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmltools"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.5.8.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["1.6.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.6.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["reactable"]},{"type":"character","attributes":{},"value":["0.4.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.4.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["reactable-binding"]},{"type":"character","attributes":{},"value":["0.4.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["reactable"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["0.4.4"]}]}]}
+</script>
+<!--/html_preserve-->
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="execution_dependencies">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69]}},"value":[{"type":"character","attributes":{},"value":["base","bslib","cachem","cli","colorspace","compiler","datasets","digest","dplyr","evaluate","fansi","fastmap","forcats","generics","ggplot2","glue","graphics","grDevices","grid","gt","gtable","hms","htmltools","htmlwidgets","httpuv","jquerylib","jsonlite","knitr","later","lifecycle","lubridate","magrittr","memoise","methods","mime","munsell","pillar","pkgconfig","promises","purrr","R6","Rcpp","reactable","reactR","readr","rlang","rmarkdown","rstudioapi","sass","scales","shiny","stats","stringi","stringr","tibble","tidyr","tidyselect","tidyverse","timechange","tools","tzdb","utf8","utils","vctrs","withr","xfun","xml2","xtable","yaml"]},{"type":"character","attributes":{},"value":["4.4.1","0.9.0","1.1.0","3.6.3","2.1-1","4.4.1","4.4.1","0.6.37","1.1.4","1.0.0","1.0.6","1.2.0","1.0.0","0.1.3","3.5.1","1.8.0","4.4.1","4.4.1","4.4.1","0.11.1","0.3.5","1.1.3","0.5.8.1","1.6.4","1.6.15","0.1.4","1.8.9","1.48","1.4.1","1.0.4","1.9.3","2.0.3","2.0.1","4.4.1","0.12","0.5.1","1.9.0","2.0.3","1.3.2","1.0.2","2.5.1","1.0.13","0.4.4","0.6.1","2.1.5","1.1.4","2.28","0.17.1","0.4.9","1.3.0","1.9.1","4.4.1","1.8.4","1.5.1","3.2.1","1.3.1","1.2.1","2.0.0","0.3.0","4.4.1","0.4.0","1.2.4","4.4.1","0.6.5","3.0.1","0.48","1.3.6","1.8-4","2.3.10"]}]}]}
+</script>
+<!--/html_preserve-->
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>
