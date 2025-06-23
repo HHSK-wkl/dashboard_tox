@@ -6,6 +6,7 @@ library(tidyverse)
 library(HHSKwkl)
 library(glue)
 library(gt)
+library(reactable)
 
 # Load data and create helper functions
 parameters <- readRDS("data/parameters.rds")
@@ -21,20 +22,24 @@ f_stof_genees <-
   readxl::read_excel("data/gbm_vertaaltabel_diergeneesmiddelen_cbg.xlsx") %>% 
   maak_opzoeker(parnr, werkzame_stof_cbg) 
 
-toelatingen_gbm <- readxl::read_excel("data/public-authorisations-report.xls", sheet = "Sheet0", guess_max = 5000) %>%
+toelatingen_orig <- readxl::read_excel("data/public-authorisations-report.xls", sheet = "Sheet0", guess_max = 5000) %>%
   select(middelnaam, startdatum, expiratiedatum, toepassing, biogewas, aard_werking = `aard werking`, werkzame_stoffen = `werkzamestoffen NL`) %>%
-  filter(!is.na(werkzame_stoffen),
-         toepassing != "Niet Professioneel",
-         biogewas == "gewasbescherming") %>%
+  filter(!is.na(werkzame_stoffen)) %>%
   mutate(status = ifelse(expiratiedatum > Sys.Date(), "Toegelaten", "Verlopen")) %>%
-  arrange(desc(expiratiedatum))
+  arrange(desc(expiratiedatum)) %>% 
+  mutate(toepassing = fct_relevel(toepassing, "Professioneel", "Professioneel & Niet Professioneel"))
 
-toelatingen_overig <- readxl::read_excel("data/public-authorisations-report.xls", sheet = "Sheet0", guess_max = 5000) %>%
-  select(middelnaam, startdatum, expiratiedatum, toepassing, biogewas, aard_werking = `aard werking`, werkzame_stoffen = `werkzamestoffen NL`) %>%
-  filter(!is.na(werkzame_stoffen),
-         biogewas != "gewasbescherming" | toepassing == "Niet Professioneel") %>%
-  mutate(status = ifelse(expiratiedatum > Sys.Date(), "Toegelaten", "Verlopen")) %>%
-  arrange(desc(expiratiedatum))
+toelatingen_gbm <- 
+  toelatingen_orig %>% 
+  filter(biogewas == "gewasbescherming") %>%
+  select(-biogewas) %>% 
+  arrange(toepassing, desc(expiratiedatum))
+
+toelatingen_biociden <- 
+  toelatingen_orig %>% 
+  filter(biogewas == "biociden") %>%
+  select(-biogewas) %>% 
+  arrange(toepassing, desc(expiratiedatum)) 
 
 diergenees <- 
   read_delim("data/metadatadib.csv", delim ="|") %>% 
@@ -55,3 +60,13 @@ f_parnaam <- maak_opzoeker(parameters, parnr, parnaamlang)
 f_eenheid <- maak_opzoeker(parameters, parnr, eenheid)
 f_aquopar <- maak_opzoeker(parameters, parnr, aquo_parcode)
 
+f_style_toegelaten <- function(status) {
+  if (status == "Toegelaten") {
+    color <- HHSKwkl::blauw
+  } else if (status == "Verlopen") {
+    color <- HHSKwkl::oranje
+  } else {
+    color <- "#777"
+  }
+  list(color = color, fontWeight = "bold")
+}
