@@ -4,12 +4,15 @@ format:
   dashboard:
     orientation: rows
 server: shiny
-logo: "www/logo_hhsk_750_wit.png"
+logo: "www/logo_wit.png"
 brand: "brand/_brand.yml"
 css: "css/dashboard_tox.css"
 execute:
   echo: false
   warning: false
+include-in-header:
+  - text: |
+      <link rel = "shortcut icon" href = "www/favicon.svg" />
 ---
 
 <!--#  Execution - zie: https://quarto.org/docs/interactive/shiny/execution.html-->
@@ -39,6 +42,7 @@ library(reactable)
 # Alleen de eerste keer at server-time
 
 source("R/load_data.R")
+thematic::thematic_shiny(font = "auto")
 ```
 
 ```{r setup}
