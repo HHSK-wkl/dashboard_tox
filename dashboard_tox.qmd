@@ -80,18 +80,22 @@ numericInput("waarde_sel", "Concentratie (in ug/l)", 1, min = 0.00000001)
 
 ### Rij Normen en toxiciteit  {height="40%"}
 
-#### Normen
-
-```{r}
-gt_output("normen")
-```
-
 #### Toxiciteit
 
 ```{r}
+#| title: Toxiciteit
 gt_output("toxiciteit")
 
 ```
+
+#### Normen
+
+```{r}
+#| title: "Normen"
+gt_output("normen")
+```
+
+
 
 ### Rij Toelatingen {height="60%"}
 
