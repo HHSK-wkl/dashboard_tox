@@ -143,8 +143,6 @@ De toxiciteit wordt bepaald op basis van de toxiciteitsinformatie die beschikbaa
 
 De informatie over toelatingen is afkomstig van het CTGB. [Toelating en gebruik gewasbeschermingsmiddelen](https://www.ctgb.nl/toelating-en-gebruik){target="_blank"}.
 
-De achterliggende data van dit dashboard is bijgewerkt op `r Sys.Date()`.
-
 Vragen over dit dashboard kunnen gestuurd worden aan <rapportage_waterkwaliteit@hhsk.nl> .
 :::
 
