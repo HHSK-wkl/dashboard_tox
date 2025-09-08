@@ -141,7 +141,9 @@ De normen zijn afkomstig van het RIVM. Zie [Risico's van Stoffen | RIVM](https:/
 
 De toxiciteit wordt bepaald op basis van de toxiciteitsinformatie die beschikbaar is via [Rekentool toxiciteit](https://www.sleutelfactortoxiciteit.nl/verdieping/werken-met-het-chemiespoor/aan-de-slag-met-de-chemie-rekentool){target="_blank"}
 
-De informatie over toelatingen is afkomstig van het CTGB. [Toelating en gebruik gewasbeschermingsmiddelen](https://www.ctgb.nl/toelating-en-gebruik){target="_blank"}.
+De informatie over toelatingen van gewasbeschermingsmiddelen is afkomstig van het CTGB. [Toelating en gebruik gewasbeschermingsmiddelen](https://www.ctgb.nl/toelating-en-gebruik){target="_blank"}.
+
+De informatie over toelatingen van diergeneesmiddelen is afkomstig van het CBG. [Diergeneesmiddeleninformatiebank](https://www.diergeneesmiddeleninformatiebank.nl/ords/f){target="_blank"}
 
 Vragen over dit dashboard kunnen gestuurd worden aan <rapportage_waterkwaliteit@hhsk.nl> .
 :::
